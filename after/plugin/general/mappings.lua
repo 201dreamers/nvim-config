@@ -64,7 +64,6 @@ vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]], { desc = "delete to void" })
 vim.keymap.set("n", "<leader>Y", [["+Y]], { desc = "line to clipboard" })
 vim.keymap.set("x", "<leader>p", [["_dP]], { desc = "paste over" })
 
-vim.keymap.set("n", "<leader>t", ":StripWhitespace<cr>", { desc = "remove trailing spaces" })
 -- vim.keymap.set("n", "<leader>t", [[:%s/\s\+$//e<cr>]], { desc = "remove trailing spaces" })
 
 -- ---------------
