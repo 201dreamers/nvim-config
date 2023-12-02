@@ -20,7 +20,7 @@ vim.opt.splitbelow = true
 vim.opt.splitright = true
 vim.opt.wildmenu = true
 vim.opt.wildmode = "longest:full,full"
-vim.opt.ignorecase = true
+vim.opt.smartcase = true
 
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
