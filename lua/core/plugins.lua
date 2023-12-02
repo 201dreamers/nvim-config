@@ -99,6 +99,9 @@ return {
     },
     {"ellisonleao/glow.nvim", config = true, cmd = "Glow"},
 
+    -- Python
+    { "Vimjas/vim-python-pep8-indent" },
+
     -- ---
     -- Git
     -- ---
