@@ -20,6 +20,7 @@ vim.opt.splitbelow = true
 vim.opt.splitright = true
 vim.opt.wildmenu = true
 vim.opt.wildmode = "longest:full,full"
+vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
 vim.opt.tabstop = 4
@@ -27,6 +28,7 @@ vim.opt.shiftwidth = 4
 vim.opt.shiftround = true
 vim.opt.expandtab = true
 vim.opt.scrolloff = 8
+vim.opt.smartindent = true
 
 vim.opt.clipboard = ""
 vim.opt.swapfile = false
