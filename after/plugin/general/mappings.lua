@@ -92,9 +92,7 @@ vim.keymap.set("n", "<leader>sh", telescope_builtin.help_tags, { desc = "help" }
 vim.keymap.set("n", "<leader>st", telescope.extensions.live_grep_args.live_grep_args, { desc = "grep" })
 vim.keymap.set("v", "<leader>st", live_grep_args_shortcuts.grep_visual_selection, { desc = "grep" })
 vim.keymap.set("n", "<leader>sg", telescope_builtin.git_files, { desc = "git files" })
-vim.keymap.set("n", "<leader>sf", function()
-    telescope_builtin.find_files({ follow = true, hidden = true, no_ignore = true })
-end, { desc = "all files" })
+vim.keymap.set("n", "<leader>sf", telescope_builtin.find_files, { desc = "all files" })
 
 -- Git
 vim.keymap.set("n", "<leader>gb", git_signs.toggle_current_line_blame, { desc = "blame" })

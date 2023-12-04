@@ -4,6 +4,13 @@ local lga_actions = require("telescope-live-grep-args.actions")
 telescope.setup({
     defaults = {
         wrap_results = true,
+        scroll_strategy = "limit",
+        file_ignore_patterns = { ".git", "venv", "__pycache__", ".vscode", ".idea", "reports", "json-schema" },
+        layout_config = {
+            horizontal = {
+                width = 0.99,
+            },
+        },
         mappings = {
             i = {
                 -- map actions.which_key to <C-h> (default: <C-/>)
@@ -12,7 +19,6 @@ telescope.setup({
                 ["<C-h>"] = "which_key"
             },
         },
-        file_ignore_patterns = { ".git", "venv", "__pycache__" },
     },
     pickers = {
         colorscheme = {
@@ -21,22 +27,25 @@ telescope.setup({
     },
     extensions = {
         file_browser = {
-            theme = "ivy",
             -- disables netrw and use telescope-file-browser in its place
             -- hijack_netrw = true,
+            theme = "ivy",
+            follow = true,
+            hidden = true,
+            no_ignore = true,
         },
         live_grep_args = {
-            auto_quoting = true, -- enable/disable auto-quoting
-            mappings = { -- extend mappings
+            auto_quoting = true,
+            additional_args = { "-.LS" },
+            mappings = {
                 i = {
-                    ["<C-f>"] = lga_actions.quote_prompt({ postfix = " -.iL "}),
+                    ["<C-f>"] = lga_actions.quote_prompt({ postfix = " -.LS "}),
                     ["<C-t>"] = lga_actions.quote_prompt({ postfix = " --iglob " }),
-                    ["<C-i>"] = lga_actions.quote_prompt({ postfix = " -v --iglob *.{html,md}" }),
+                    ["<C-i>"] = lga_actions.quote_prompt({ postfix = " -v --iglob *.{html,md} " }),
                 },
             },
-            -- ... also accepts theme settings, for example:
+            -- also accepts theme settings, for example:
             -- theme = "dropdown", -- use dropdown theme
-            -- theme = { }, -- use own theme spec
             -- layout_config = { mirror=true }, -- mirror preview pane
         },
         ["ui-select"] = {
