@@ -33,7 +33,6 @@ mason_lspconfig.setup({
     ensure_installed = {
         "lua_ls",
         "marksman",
-        "ruff_lsp",
         "pylsp",
         "jsonls",
         "clangd",
