@@ -16,14 +16,13 @@ local spectre = require("spectre")
 -- -------------------
 
 wk.register({
-    ["<leader>s"] = { name = "+find" },
+    ["<leader>s"] = { name = "+search" },
     ["<leader>d"] = { name = "+diagnostic" },
     ["<leader>g"] = { name = "+git" },
     ["<leader>l"] = {
         name = "+lsp",
         g = { name = "+goto" },
     },
-    ["<leader>lg"] = { name = "+goto" },
 })
 
 
