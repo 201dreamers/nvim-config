@@ -3,8 +3,8 @@ vim.cmd("set formatoptions-=co")
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
+-- vim.g.loaded_netrw = 1
+-- vim.g.loaded_netrwPlugin = 1
 
 vim.opt.swapfile = false
 vim.opt.backup = false
@@ -45,3 +45,6 @@ vim.g.icons_enabled = true
 vim.g.ui_notifications_enabled = true
 
 vim.opt.updatetime = 50
+
+vim.opt.conceallevel = 2
+vim.opt.concealcursor = "nc"

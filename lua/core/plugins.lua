@@ -117,6 +117,18 @@ return {
     -- Python
     { "Vimjas/vim-python-pep8-indent" },
 
+    -- Org mode
+    {
+        'nvim-orgmode/orgmode',
+        dependencies = {
+            { 'nvim-treesitter/nvim-treesitter', lazy = true },
+        },
+        event = 'VeryLazy',
+    },
+    { "akinsho/org-bullets.nvim" },
+    { "dhruvasagar/vim-table-mode" },
+    { "michaelb/sniprun" },
+
     -- ---
     -- Git
     -- ---
