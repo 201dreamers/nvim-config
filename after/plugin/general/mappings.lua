@@ -36,10 +36,10 @@ vim.keymap.set("n", "<C-j>", "<C-w><Down>")
 vim.keymap.set("n", "<C-k>", "<C-w><Up>")
 vim.keymap.set("n", "<C-l>", "<C-w><Right>")
 
-vim.keymap.set("n", "<C-Left>", ":vertical resize -5<cr>")
-vim.keymap.set("n", "<C-Right>", ":vertical resize +5<cr>")
-vim.keymap.set("n", "<C-Up>", ":resize +5<cr>")
-vim.keymap.set("n", "<C-Down>", ":resize -5<cr>")
+vim.keymap.set("n", "<M-Left>", ":vertical resize -5<cr>")
+vim.keymap.set("n", "<M-Right>", ":vertical resize +5<cr>")
+vim.keymap.set("n", "<M-Up>", ":resize +5<cr>")
+vim.keymap.set("n", "<M-Down>", ":resize -5<cr>")
 
 -- Buffers
 vim.keymap.set("n", "H", ":bp<cr>")
