@@ -20,13 +20,15 @@ return {
     { "ThePrimeagen/harpoon" },
     { "nvim-pack/nvim-spectre" },
     { "mg979/vim-visual-multi" },
+    { "dhruvasagar/vim-table-mode" },
 
 
     -- ---------
     -- Telescope
     -- ---------
     {
-        "nvim-telescope/telescope.nvim", tag = "0.1.4",
+        "nvim-telescope/telescope.nvim",
+        branch = '0.1.x',
         dependencies = { "nvim-lua/plenary.nvim" }
     },
     {
@@ -47,19 +49,19 @@ return {
     -- -----------------------------
     {
         "numToStr/Comment.nvim",
-        config = {
+        opts = {
             toggler = {
                 ---Line-comment toggle keymap
-                line = '<leader>/',
+                line = "<leader>/",
                 ---Block-comment toggle keymap
-                block = 'gbc',
+                block = "gbc",
             },
             ---LHS of operator-pending mappings in NORMAL and VISUAL mode
             opleader = {
                 ---Line-comment keymap
-                line = '<leader>/',
+                line = "<leader>/",
                 ---Block-comment keymap
-                block = 'gb',
+                block = "gb",
             },
         },
         lazy = false,
@@ -74,28 +76,32 @@ return {
     { "nvim-treesitter/nvim-treesitter" },
     { "nmac427/guess-indent.nvim" },
     { "norcalli/nvim-colorizer.lua" },
-    { "folke/lsp-colors.nvim", event = "BufRead" },
-    -- { "mfussenegger/nvim-lint" },
-    { "mhartington/formatter.nvim" },
+    { "folke/lsp-colors.nvim",          event = "BufRead" },
 
     -- LSP
     {
-        'VonHeikemen/lsp-zero.nvim',
-        branch = 'v2.x',
+        "VonHeikemen/lsp-zero.nvim",
+        branch = "v3.x",
         dependencies = {
             -- LSP Support
-            {'neovim/nvim-lspconfig'},             -- Required
-            {'williamboman/mason.nvim'},           -- Optional
-            {'williamboman/mason-lspconfig.nvim'}, -- Optional
+            { "neovim/nvim-lspconfig" },             -- Required
+            { "williamboman/mason.nvim" },           -- Optional
+            { "williamboman/mason-lspconfig.nvim" }, -- Optional
 
             -- Autocompletion
-            {'hrsh7th/nvim-cmp'},        -- Required
-            {'hrsh7th/cmp-nvim-lsp'},    -- Required
-            {'L3MON4D3/LuaSnip'},        -- Required
-            { "hrsh7th/cmp-buffer" },    -- Optional
-            { "onsails/lspkind.nvim" },  -- Optional
+            { "hrsh7th/nvim-cmp" },     -- Required
+            { "hrsh7th/cmp-nvim-lsp" }, -- Required
+            { "L3MON4D3/LuaSnip" },     -- Required
+            { "hrsh7th/cmp-buffer" },   -- Optional
+            { "onsails/lspkind.nvim" }, -- Optional
         }
     },
+    {
+        "stevearc/conform.nvim",
+        event = "VeryLazy",
+    },
+    -- { "mfussenegger/nvim-lint" },
+    -- { "nvimdev/guard.nvim" },
 
 
     -- ------------------------------
@@ -112,55 +118,56 @@ return {
         ft = { "markdown" },
         build = function() vim.fn["mkdp#util#install"]() end,
     },
-    {"ellisonleao/glow.nvim", config = true, cmd = "Glow"},
+    { "ellisonleao/glow.nvim",        config = true, cmd = "Glow" },
 
     -- Python
     { "Vimjas/vim-python-pep8-indent" },
 
     -- Org mode
     {
-        'nvim-orgmode/orgmode',
+        "nvim-orgmode/orgmode",
         dependencies = {
-            { 'nvim-treesitter/nvim-treesitter', lazy = true },
+            { "nvim-treesitter/nvim-treesitter", lazy = true },
         },
-        event = 'VeryLazy',
+        event = "VeryLazy",
     },
-    { "akinsho/org-bullets.nvim" },
-    { "dhruvasagar/vim-table-mode" },
-    { "michaelb/sniprun" },
+    { "akinsho/org-bullets.nvim", event = "VeryLazy" },
+    -- { "michaelb/sniprun",         event = "VeryLazy" },
 
     -- ---
     -- Git
     -- ---
-    { "sindrets/diffview.nvim" },
+    { "sindrets/diffview.nvim",   event = "VeryLazy" },
     { "lewis6991/gitsigns.nvim" },
     {
-     "NeogitOrg/neogit",
+        "NeogitOrg/neogit",
         dependencies = {
             "nvim-lua/plenary.nvim",         -- required
             "nvim-telescope/telescope.nvim", -- optional
             "sindrets/diffview.nvim",        -- optional
             "ibhagwan/fzf-lua",              -- optional
         },
-        config = true
+        config = true,
+        event = "VeryLazy"
     },
 
     -- ------
     -- Others
     -- ------
-    {  -- fast movement around text
+    { -- fast movement around text
         "ggandor/leap.nvim",
         config = function() require("leap").add_default_mappings() end
     },
-    {
-        "ntpeters/vim-better-whitespace",
-        config = function()
-            vim.g.better_whitespace_filetypes_blacklist = {
-                "toggleterm", "TelescopePrompt", "diff", "git", "gitcommit",
-                "unite", "qf", "help", "markdown", "fugitive"
-            }
-        end
-    },
+    { "johnfrankmorgan/whitespace.nvim" },
+    -- {
+    --     "ntpeters/vim-better-whitespace",
+    --     config = function()
+    --         vim.g.better_whitespace_filetypes_blacklist = {
+    --             "toggleterm", "TelescopePrompt", "diff", "git", "gitcommit",
+    --             "unite", "qf", "help", "markdown", "fugitive"
+    --         }
+    --     end
+    -- },
 
     -- ------------
     -- Colorschemes
