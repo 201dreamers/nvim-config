@@ -21,7 +21,16 @@ return {
 	{ "nvim-pack/nvim-spectre" },
 	{ "mg979/vim-visual-multi" },
 	{ "dhruvasagar/vim-table-mode" },
-	{ "szw/vim-maximizer" },
+	{
+		"szw/vim-maximizer",
+		init = function()
+			vim.cmd([[
+                let g:maximizer_set_default_mapping = 0
+                let g:maximizer_set_mapping_with_bang = 0
+                let g:maximizer_default_mapping_key = ''
+            ]])
+		end,
+	},
 
 	-- ---------
 	-- Telescope
