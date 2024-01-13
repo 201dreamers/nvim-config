@@ -1,4 +1,6 @@
-require("lspconfig").pylsp.setup({
+local lspconfig = require("lspconfig")
+
+local opts = {
     settings = {
         pylsp = {
             plugins = {
@@ -29,4 +31,8 @@ require("lspconfig").pylsp.setup({
             },
         },
     },
-})
+}
+
+return function()
+    lspconfig.pylsp.setup(opts)
+end

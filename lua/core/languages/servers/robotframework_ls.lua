@@ -1,7 +1,8 @@
+local lspconfig = require("lspconfig")
 local main_repo = vim.fn.getcwd()
 local python_executable = "/home/dhakman/SleepNumber/venv/bin/python3.10"
 
-require("lspconfig").robotframework_ls.setup({
+local opts = {
     config = {
         filetypes = { "robot", "resource" },
     },
@@ -43,4 +44,8 @@ require("lspconfig").robotframework_ls.setup({
             loadVariablesFromArgumentsFile = main_repo .. "/argumentfile.txt",
         },
     },
-})
+}
+
+return function()
+    lspconfig.robotframework_ls.setup(opts)
+end

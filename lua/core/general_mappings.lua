@@ -3,9 +3,12 @@ local map = vim.keymap.set
 -- ----------------
 -- General mappings
 -- ----------------
+-- Add here mapping not related to plugins
+
 
 -- Default explorer
 map("n", "<leader>e", ":Explore<cr>")
+
 
 -- Moving around windows
 map("n", "<C-h>", "<C-w><Left>")
@@ -42,5 +45,6 @@ map({ "n", "v" }, "<leader>y", [["+y]], { desc = "copy to clipboard" })
 map({ "n", "v" }, "<leader>d", [["_d]], { desc = "delete to void" })
 map("n", "<leader>Y", [["+Y]], { desc = "line to clipboard" })
 map("x", "<leader>p", [["_dP]], { desc = "paste over" })
+
 
 -- map("n", "<leader>t", [[:%s/\s\+$//e<cr>]], { desc = "remove trailing spaces" })

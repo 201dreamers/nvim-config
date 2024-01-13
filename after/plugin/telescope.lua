@@ -1,9 +1,9 @@
 local ok, telescope = pcall(require, "telescope")
-
 if not ok then
     return
 end
 
+local telescope_actions = require("telescope.actions")
 local lga_actions = require("telescope-live-grep-args.actions")
 
 -- -----
@@ -24,7 +24,7 @@ telescope.setup({
                 -- map actions.which_key to <C-h> (default: <C-/>)
                 -- actions.which_key shows the mappings for your picker,
                 -- e.g. git_{create, delete, ...}_branch for the git_branches picker
-                ["<C-h>"] = "which_key"
+                ["<C-h>"] = "which_key",
             },
         },
     },
@@ -34,6 +34,14 @@ telescope.setup({
         },
         buffers = {
             initial_mode = "normal",
+            mappings = {
+                i = {
+                    ["<C-d>"] = telescope_actions.delete_buffer
+                },
+                n = {
+                    c = telescope_actions.delete_buffer,
+                }
+            },
         }
     },
     extensions = {
@@ -53,7 +61,7 @@ telescope.setup({
                 i = {
                     ["<C-f>"] = lga_actions.quote_prompt({ postfix = " -.LS " }),
                     ["<C-t>"] = lga_actions.quote_prompt({ postfix = " --iglob " }),
-                    ["<C-i>"] = lga_actions.quote_prompt({ postfix = " -v --iglob *.{html,md} " }),
+                    ["<C-i>"] = lga_actions.quote_prompt({ postfix = " -v --glob *.{html,md} " }),
                 },
             },
             -- also accepts theme settings, for example:
