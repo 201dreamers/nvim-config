@@ -84,9 +84,10 @@ return {
         branch = "v3.x",
         dependencies = {
             -- LSP Support
-            { "neovim/nvim-lspconfig" },             -- Required
-            { "williamboman/mason.nvim" },           -- Optional
-            { "williamboman/mason-lspconfig.nvim" }, -- Optional
+            { "neovim/nvim-lspconfig" },                     -- Required
+            { "williamboman/mason.nvim" },                   -- Optional
+            { "williamboman/mason-lspconfig.nvim" },         -- Optional
+            { "WhoIsSethDaniel/mason-tool-installer.nvim" }, -- Optional
 
             -- Autocompletion
             { "hrsh7th/nvim-cmp" },     -- Required
@@ -97,11 +98,13 @@ return {
         }
     },
     {
+        "mfussenegger/nvim-lint",
+        event = { "BufReadPre", "BufNewFile" },
+    },
+    {
         "stevearc/conform.nvim",
         event = "VeryLazy",
     },
-    -- { "mfussenegger/nvim-lint" },
-    -- { "nvimdev/guard.nvim" },
 
 
     -- ------------------------------

@@ -1,11 +1,7 @@
 local ok, lsp_zero = pcall(require, "lsp-zero")
-
 if not ok then
     return
 end
-
-local mason = require("mason")
-local mason_lspconfig = require("mason-lspconfig")
 
 
 lsp_zero.on_attach(function(_, bufnr)
@@ -27,8 +23,8 @@ lsp_zero.on_attach(function(_, bufnr)
     map("v", "<C-k>", vim.lsp.buf.signature_help, { buffer = bufnr, desc = "signature help" })
     map("n", "<leader>lh", vim.lsp.buf.hover, { buffer = bufnr, desc = "hover" })
     map("n", "<leader>lr", vim.lsp.buf.rename, { buffer = bufnr, desc = "rename" })
-    map({ "n", "x" }, "<leader>lf", function() vim.lsp.buf.format({ async = true }) end,
-        { buffer = bufnr, desc = "format" })
+    map({ "n", "x" }, "<leader>lF", function() vim.lsp.buf.format({ async = true }) end,
+        { buffer = bufnr, desc = "lsp format" })
     map("n", "<leader>la", vim.lsp.buf.code_action, { buffer = bufnr, desc = "code action" })
 
     map("n", "<leader>ld", vim.diagnostic.open_float, { buffer = bufnr, desc = "open diagnostic" })
@@ -43,12 +39,18 @@ lsp_zero.set_sign_icons({
     info = '»'
 })
 
+
+local mason = require("mason")
+local mason_lspconfig = require("mason-lspconfig")
+local mason_tool_installer = require("mason-tool-installer")
+
 -- Configure servers that should be installed
 mason.setup()
+
 mason_lspconfig.setup({
     ensure_installed = {
         "lua_ls",
-        "pylsp",
+        "pyright",
         "marksman",
         "jsonls",
         "clangd",
@@ -61,8 +63,19 @@ mason_lspconfig.setup({
         -- To exclude a language server from the automatic setup
         -- tsserver = lsp_zero.noop,
 
-        lua_ls = require("core.servers.lua_ls"),
-        pylsp = require("core.servers.pylsp"),
-        robotframework_ls = require("core.servers.robotframework_ls"),
+        lua_ls = require("core.languages.servers.lua_ls"),
+        pyright = require("core.languages.servers.pyright"),
+        robotframework_ls = require("core.languages.servers.robotframework_ls"),
+    },
+})
+
+-- Configure linters/formatters/debuggers that should be installed
+mason_tool_installer.setup({
+    ensure_installed = {
+        "prettier", -- prettier formatter
+        "stylua",   -- lua formatter
+        "isort",    -- python formatter
+        "black",    -- python formatter
+        "ruff",     -- python linter
     },
 })
