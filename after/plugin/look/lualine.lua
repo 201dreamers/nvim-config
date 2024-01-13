@@ -1,5 +1,4 @@
 local ok, lualine = pcall(require, "lualine")
-
 if not ok then
     return
 end
@@ -23,7 +22,7 @@ lualine.setup({
             winbar = 1000,
         }
     },
-    sections = {
+    tabline = {
         lualine_a = {
             {
                 "mode",
@@ -44,7 +43,11 @@ lualine.setup({
         lualine_y = {},
         lualine_z = {}
     },
-    tabline = {},
+    sections = {},
+    extensions = {
+        "lazy", "nvim-tree", "fzf"
+    }
+
     -- tabline = {
     --     lualine_a = {
     --         {
@@ -58,7 +61,4 @@ lualine.setup({
     --     lualine_y = {},
     --     lualine_z = {}
     -- },
-    extensions = {
-        "lazy", "nvim-tree", "fzf"
-    }
 })

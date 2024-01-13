@@ -1,16 +1,14 @@
 local ok, harpoon = pcall(require, "harpoon")
-
 if not ok then
-    return
+	return
 end
 
 -- -----
 -- Setup
 -- -----
 harpoon.setup({
-    tabline = false,
+	tabline = false,
 })
-
 
 -- --------
 -- Mappings
@@ -22,7 +20,12 @@ local harpoon_ui = require("harpoon.ui")
 map("n", "<leader>a", harpoon_mark.add_file, { desc = "harpoon add" })
 map("n", "<C-e>", harpoon_ui.toggle_quick_menu, { desc = "harpoon quick menu" })
 
-map("n", "<M-1>", function() harpoon_ui.nav_file(1) end, { desc = "harpoon goto file 1" })
-map("n", "<M-2>", function() harpoon_ui.nav_file(2) end, { desc = "harpoon goto file 2" })
-map("n", "<M-3>", function() harpoon_ui.nav_file(3) end, { desc = "harpoon goto file 3" })
-map("n", "<M-4>", function() harpoon_ui.nav_file(4) end, { desc = "harpoon goto file 4" })
+for i = 1, 4 do
+	local key = string.format("<M-%d>", i)
+	local description = string.format("harpoon goto file %d", i)
+	local action = function()
+		harpoon_ui.nav_file(i)
+	end
+
+	map("n", key, action, { desc = description })
+end

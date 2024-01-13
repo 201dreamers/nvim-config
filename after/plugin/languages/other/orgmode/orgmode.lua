@@ -1,5 +1,9 @@
-local orgmode = require("orgmode")
-local org_bullets = require("org-bullets")
+local orgmode_ok, orgmode = pcall(require, "orgmode")
+local org_bullets_ok, org_bullets = pcall(require, "org-bullets")
+
+if not (orgmode_ok and org_bullets_ok) then
+    return
+end
 
 -- Load treesitter grammar for org
 orgmode.setup_ts_grammar()
