@@ -21,6 +21,7 @@ return {
 	{ "nvim-pack/nvim-spectre" },
 	{ "mg979/vim-visual-multi" },
 	{ "dhruvasagar/vim-table-mode" },
+	{ "szw/vim-maximizer" },
 
 	-- ---------
 	-- Telescope
