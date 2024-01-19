@@ -19,7 +19,14 @@ return {
 	{ "mbbill/undotree" },
 	{ "ThePrimeagen/harpoon" },
 	{ "nvim-pack/nvim-spectre" },
-	{ "mg979/vim-visual-multi" },
+	{
+		"mg979/vim-visual-multi",
+		init = function()
+			vim.cmd([[
+                let g:VM_theme = "codedark"
+            ]])
+		end,
+	},
 	{ "dhruvasagar/vim-table-mode" },
 	{
 		"szw/vim-maximizer",

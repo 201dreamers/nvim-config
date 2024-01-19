@@ -27,6 +27,7 @@ whitespace.setup({
 		"fugitive",
 		"Trouble",
 		"mason",
+        "lspinfo",
 	},
 
 	ignore_terminal = true,

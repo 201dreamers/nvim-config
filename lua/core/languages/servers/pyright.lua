@@ -13,5 +13,5 @@ local opts = {
 }
 
 return function()
-	lspconfig.pylsp.setup(opts)
+	lspconfig.pyright.setup(opts)
 end
