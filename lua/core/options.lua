@@ -4,8 +4,8 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 if pcall(require, "nvim-tree") then
-    vim.g.loaded_netrw = 1
-    vim.g.loaded_netrwPlugin = 1
+	vim.g.loaded_netrw = 1
+	vim.g.loaded_netrwPlugin = 1
 end
 
 vim.opt.swapfile = false
@@ -42,9 +42,9 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 
 vim.g.autoformat_enabled = false -- enable or disable auto formatting at start (lsp.formatting.format_on_save must be enabled)
-vim.g.cmp_enabled = true         -- enable completion at start
-vim.g.autopairs_enabled = true   -- enable autopairs at start
-vim.g.diagnostics_mode = 3       -- set the visibility of diagnostics in the UI (0=off, 1=only show in status line, 2=virtual text off, 3=all on)
+vim.g.cmp_enabled = true -- enable completion at start
+vim.g.autopairs_enabled = true -- enable autopairs at start
+vim.g.diagnostics_mode = 3 -- set the visibility of diagnostics in the UI (0=off, 1=only show in status line, 2=virtual text off, 3=all on)
 vim.g.icons_enabled = true
 vim.g.ui_notifications_enabled = true
 
@@ -52,3 +52,74 @@ vim.opt.updatetime = 50
 
 -- vim.opt.conceallevel = 2
 vim.opt.concealcursor = "nc"
+
+vim.opt.langmap = {
+	"йq",
+	"цw",
+	"уe",
+	"кr",
+	"еt",
+	"нy",
+	"гu",
+	"шi",
+	"щo",
+	"зp",
+	"х[",
+	"ї]",
+	"фa",
+	"іs",
+	"вd",
+	"аf",
+	"пg",
+	"рh",
+	"оj",
+	"лk",
+	"дl",
+	"ж\\;",
+	"є'",
+	"ґ\\",
+	"яz",
+	"чx",
+	"сc",
+	"мv",
+	"иb",
+	"тn",
+	"ьm",
+	"ю.",
+	"./",
+	"ЙQ",
+	"ЦW",
+	"УE",
+	"КR",
+	"ЕT",
+	"НY",
+	"НY",
+	"ГU",
+	"ШI",
+	"ЩO",
+	"ЗP",
+	"Х{",
+	"Ї}",
+	"ФA",
+	"ІS",
+	"ВD",
+	"АF",
+	"ПG",
+	"РH",
+	"ОJ",
+	"ЛK",
+	"ДL",
+	"Ж\\:",
+	'Є\\"',
+	"Ґ<bar>",
+	"ЯZ",
+	"ЧX",
+	"СC",
+	"МV",
+	"ИB",
+	"ТN",
+	"ЬM",
+	"Б\\<",
+	"Ю>",
+	"№#",
+}
