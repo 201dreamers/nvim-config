@@ -22,7 +22,7 @@ lualine.setup({
             winbar = 1000,
         }
     },
-    tabline = {
+    sections = {
         lualine_a = {
             {
                 "mode",
@@ -30,8 +30,8 @@ lualine.setup({
             },
         },
         lualine_b = { "diff", "diagnostics" },
-        lualine_c = { "branch" },
-        lualine_x = { "filename", "filetype", "fileformat" },
+        lualine_c = { "filename" },
+        lualine_x = { "branch", "filetype", "fileformat" },
         lualine_y = { "filesize" },
         lualine_z = { "location" }
     },
@@ -43,7 +43,7 @@ lualine.setup({
         lualine_y = {},
         lualine_z = {}
     },
-    sections = {},
+    tabline = {},
     extensions = {
         "lazy", "nvim-tree", "fzf"
     }
