@@ -56,7 +56,7 @@ mason_lspconfig.setup({
 		"bashls",
 		"taplo",
 		"yamlls",
-        "gopls",
+        -- "gopls",
 	},
 	handlers = {
 		lsp_zero.default_setup,
@@ -64,9 +64,10 @@ mason_lspconfig.setup({
 		-- tsserver = lsp_zero.noop,
 
 		lua_ls = require("core.languages.servers.lua_ls"),
-		pyright = require("core.languages.servers.pyright"),
+		pylsp = require("core.languages.servers.pylsp"),
 		robotframework_ls = require("core.languages.servers.robotframework_ls"),
-        gopls = require("core.languages.servers.gopls"),
+		-- pyright = require("core.languages.servers.pyright"),
+        -- gopls = require("core.languages.servers.gopls"),
 	},
 })
 
@@ -78,6 +79,6 @@ mason_tool_installer.setup({
 		"isort",
 		"ruff",
 		"debugpy",
-        "golangci-lint",
+        -- "golangci-lint",
 	},
 })

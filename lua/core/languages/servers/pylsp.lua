@@ -4,29 +4,32 @@ local opts = {
     settings = {
         pylsp = {
             plugins = {
-                ruff = {
-                    -- executable = "<path-to-ruff-bin>",  -- Custom path to ruff
-                    -- path = "<path_to_custom_ruff_toml>",  -- Custom config for ruff to use
-                    -- preview = false,  -- Whether to enable the preview style linting and formatting
-
-                    lineLength = 120,
-                    select = { "E", "F", "UP", "B", "SIM", "I" },
-                    perFileIgnores = { ["__init__.py"] = "F401" },
-                    targetVersion = "py311",
-                    enabled = true,
-                    indentWidth = 4,
-                    severities = {
-                        F401 = "W",
-                        F403 = "W",
-                        F405 = "W",
-                        F541 = "W",
-                        F811 = "W",
-                        F841 = "W",
-                    },
+                rope = {
+                    enabled = false,
+                },
+                pyflakes = {
+                    enabled = false,
+                },
+                mccabe = {
+                    enabled = false,
                 },
                 pycodestyle = {
-                    maxLineLength = 120,
-                    indentSize = 4,
+                    enabled = false,
+                },
+                pydocstyle = {
+                    enabled = false,
+                },
+                autopep8 = {
+                    enabled = false,
+                },
+                yapf = {
+                    enabled = false,
+                },
+                flake8 = {
+                    enabled = false,
+                },
+                pylint = {
+                    enabled = false,
                 },
             },
         },
