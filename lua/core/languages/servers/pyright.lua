@@ -7,6 +7,7 @@ local opts = {
 				autoSearchPaths = true,
 				-- diagnosticMode = "openFilesOnly",
 				useLibraryCodeForTypes = true,
+                autoImportCompletions = false,
 			},
 		},
 	},
