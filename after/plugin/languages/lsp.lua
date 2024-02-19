@@ -49,7 +49,7 @@ mason.setup()
 mason_lspconfig.setup({
 	ensure_installed = {
 		"lua_ls",
-		"pyright",
+		"pylsp",
 		"marksman",
 		"jsonls",
 		"clangd",
