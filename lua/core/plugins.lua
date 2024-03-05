@@ -197,10 +197,10 @@ return {
 	-- ------------
 	-- Colorschemes
 	-- ------------
-	{ "lunarvim/colorschemes" },
-	{ "christianchiarulli/nvcode-color-schemes.vim" },
-	{ "Mofiqul/vscode.nvim" },
-	{ "sainnhe/edge" },
+	-- { "lunarvim/colorschemes" },
+	-- { "christianchiarulli/nvcode-color-schemes.vim" },
+	-- { "Mofiqul/vscode.nvim" },
+	-- { "sainnhe/edge" },
 	{ "rebelot/kanagawa.nvim" },
 	{ "EdenEast/nightfox.nvim" },
 	{
