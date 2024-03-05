@@ -59,6 +59,11 @@ return {
 		"nvim-telescope/telescope-ui-select.nvim",
 		dependencies = { "nvim-telescope/telescope.nvim" },
 	},
+	{
+		"nvim-telescope/telescope-fzf-native.nvim",
+		build = "make",
+		dependencies = { "nvim-telescope/telescope.nvim" },
+	},
 
 	-- -----------------------------
 	-- General stuff for programming

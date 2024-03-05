@@ -3,8 +3,8 @@ if not ok then
 	return
 end
 
-local telescope_actions = require("telescope.actions")
 -- local telescope_themes = require("telescope.themes")
+local telescope_actions = require("telescope.actions")
 local lga_actions = require("telescope-live-grep-args.actions")
 
 -- -----
@@ -65,7 +65,6 @@ telescope.setup({
 			follow = true,
 			hidden = true,
 			no_ignore = true,
-			initial_mode = "normal",
 		},
 		live_grep_args = {
 			auto_quoting = true,
@@ -80,6 +79,13 @@ telescope.setup({
 			-- also accepts theme settings, for example:
 			-- theme = "dropdown", -- use dropdown theme
 			-- layout_config = { mirror=true }, -- mirror preview pane
+		},
+		fzf = {
+			fuzzy = true, -- false will only do exact matching
+			override_generic_sorter = true, -- override the generic sorter
+			override_file_sorter = true, -- override the file sorter
+			case_mode = "smart_case", -- or "ignore_case" or "respect_case"
+			-- the default case_mode is "smart_case"
 		},
 		["ui-select"] = {
 			-- pseudo code / specification for writing custom displays, like the one
@@ -102,6 +108,7 @@ telescope.setup({
 telescope.load_extension("file_browser")
 telescope.load_extension("live_grep_args")
 telescope.load_extension("ui-select")
+telescope.load_extension("fzf")
 
 -- --------
 -- Mappings
