@@ -7,7 +7,10 @@ end
 -- Setup
 -- -----
 harpoon.setup({
-	tabline = false,
+	tabline = true,
+	menu = {
+		width = vim.api.nvim_win_get_width(0) - 4,
+	},
 })
 
 -- --------
