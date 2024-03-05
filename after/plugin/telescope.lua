@@ -4,54 +4,49 @@ if not ok then
 end
 
 local telescope_actions = require("telescope.actions")
-local telescope_themes = require("telescope.themes")
+-- local telescope_themes = require("telescope.themes")
 local lga_actions = require("telescope-live-grep-args.actions")
 
 -- -----
 -- Setup
 -- -----
 telescope.setup({
-	-- defaults = {
-	defaults = vim.tbl_extend(
-		"force",
-		telescope_themes.get_ivy(), -- or get_cursor, get_ivy
-		{
-			wrap_results = true,
-			scroll_strategy = "limit",
-			file_ignore_patterns = { ".git", "venv", "__pycache__", ".vscode", ".idea", "reports", "json-schema" },
-			layout_config = {
-				horizontal = {
-					width = 0.99,
-				},
-				center = {
-					width = 0.99,
-				},
-				vertical = {
-					width = 0.99,
-				},
-				bottom_pane = {
-					height = 35,
-					preview_cutoff = 120,
-					prompt_position = "top",
-				},
+	defaults = {
+		-- defaults = vim.tbl_extend(
+		-- 	"force",
+		-- 	telescope_themes.get_ivy(), -- or get_cursor, get_ivy
+		-- 	{
+		wrap_results = true,
+		scroll_strategy = "limit",
+		file_ignore_patterns = { ".git", "venv", "__pycache__", ".vscode", ".idea", "reports", "json-schema" },
+		layout_config = {
+			horizontal = {
+				width = 0.99,
 			},
-			mappings = {
-				i = {
-					-- map actions.which_key to <C-h> (default: <C-/>)
-					-- actions.which_key shows the mappings for your picker,
-					-- e.g. git_{create, delete, ...}_branch for the git_branches picker
-					["<C-h>"] = "which_key",
-				},
+			center = {
+				width = 0.99,
 			},
-		}
-	),
-	-- },
+			vertical = {
+				width = 0.99,
+			},
+			bottom_pane = {
+				height = 35,
+			},
+		},
+		mappings = {
+			i = {
+				-- map actions.which_key to <C-h> (default: <C-/>)
+				["<C-h>"] = "which_key",
+			},
+		},
+		-- 	}
+		-- ),
+	},
 	pickers = {
 		colorscheme = {
 			enable_preview = true,
 		},
 		buffers = {
-			initial_mode = "normal",
 			mappings = {
 				i = {
 					["<C-d>"] = telescope_actions.delete_buffer,
