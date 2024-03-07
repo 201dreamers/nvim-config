@@ -1,6 +1,6 @@
 local ok, ibl = pcall(require, "ibl")
 if not ok then
-	return
+    return
 end
 
 -- -----
@@ -22,7 +22,6 @@ local function setup_with_background_color()
     })
 end
 
-
 local function setup_with_rainbow_lines()
     local highlight = {
         "RainbowRed",
@@ -34,7 +33,7 @@ local function setup_with_rainbow_lines()
         "RainbowCyan",
     }
 
-    local hooks = require "ibl.hooks"
+    local hooks = require("ibl.hooks")
     -- create the highlight groups in the highlight setup hook, so they are reset
     -- every time the colorscheme changes
     hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
@@ -47,7 +46,7 @@ local function setup_with_rainbow_lines()
         vim.api.nvim_set_hl(0, "RainbowCyan", { fg = "#56B6C2" })
     end)
 
-    ibl.setup { indent = { highlight = highlight } }
+    ibl.setup({ indent = { highlight = highlight } })
 end
 
 -- setup_with_rainbow_lines()

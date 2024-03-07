@@ -20,20 +20,22 @@ lualine.setup({
             statusline = 1000,
             tabline = 1000,
             winbar = 1000,
-        }
+        },
     },
     sections = {
         lualine_a = {
             {
                 "mode",
-                fmt = function(str) return str:sub(1, 1) end
+                fmt = function(str)
+                    return str:sub(1, 1)
+                end,
             },
         },
         lualine_b = { "diff", "diagnostics" },
         lualine_c = { "filename" },
         lualine_x = { "branch", "filetype", "fileformat" },
         lualine_y = { "filesize" },
-        lualine_z = { "location" }
+        lualine_z = { "location" },
     },
     inactive_sections = {
         lualine_a = {},
@@ -41,12 +43,14 @@ lualine.setup({
         lualine_c = { "filename" },
         lualine_x = { "location" },
         lualine_y = {},
-        lualine_z = {}
+        lualine_z = {},
     },
     tabline = {},
     extensions = {
-        "lazy", "nvim-tree", "fzf"
-    }
+        "lazy",
+        "nvim-tree",
+        "fzf",
+    },
 
     -- tabline = {
     --     lualine_a = {

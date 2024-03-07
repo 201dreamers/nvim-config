@@ -1,36 +1,36 @@
 local ok, whitespace = pcall(require, "whitespace-nvim")
 
 if not ok then
-	return
+    return
 end
 
 -- -----
 -- Setup
 -- -----
 whitespace.setup({
-	-- `highlight` configures which highlight is used to display
-	-- trailing whitespace
-	highlight = "DiffDelete",
+    -- `highlight` configures which highlight is used to display
+    -- trailing whitespace
+    highlight = "DiffDelete",
 
-	-- `ignored_filetypes` configures which filetypes to ignore when
-	-- displaying trailing whitespace
-	ignored_filetypes = {
-		"toggleterm",
-		"TelescopePrompt",
-		"diff",
-		"git",
-		"gitcommit",
-		"unite",
-		"qf",
-		"help",
-		"markdown",
-		"fugitive",
-		"Trouble",
-		"mason",
+    -- `ignored_filetypes` configures which filetypes to ignore when
+    -- displaying trailing whitespace
+    ignored_filetypes = {
+        "toggleterm",
+        "TelescopePrompt",
+        "diff",
+        "git",
+        "gitcommit",
+        "unite",
+        "qf",
+        "help",
+        "markdown",
+        "fugitive",
+        "Trouble",
+        "mason",
         "lspinfo",
-	},
+    },
 
-	ignore_terminal = true,
+    ignore_terminal = true,
 })
 
 -- --------

@@ -10,7 +10,7 @@ nvim_tree.setup({
     update_focused_file = {
         enable = true,
         update_root = true,
-        ignore_list = { ".git", "venv", ".venv" }
+        ignore_list = { ".git", "venv", ".venv" },
     },
     view = {
         side = "right",
@@ -28,7 +28,6 @@ nvim_tree.setup({
         git_clean = false,
     },
 })
-
 
 -- --------
 -- Mappings

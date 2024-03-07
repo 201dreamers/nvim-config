@@ -4,8 +4,8 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 if pcall(require, "nvim-tree") then
-	vim.g.loaded_netrw = 1
-	vim.g.loaded_netrwPlugin = 1
+    vim.g.loaded_netrw = 1
+    vim.g.loaded_netrwPlugin = 1
 end
 
 vim.opt.swapfile = false

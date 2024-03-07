@@ -1,16 +1,16 @@
 local ok, harpoon = pcall(require, "harpoon")
 if not ok then
-	return
+    return
 end
 
 -- -----
 -- Setup
 -- -----
 harpoon.setup({
-	tabline = true,
-	menu = {
-		width = vim.api.nvim_win_get_width(0) - 4,
-	},
+    tabline = true,
+    menu = {
+        width = vim.api.nvim_win_get_width(0) - 4,
+    },
 })
 
 -- --------
@@ -26,11 +26,11 @@ map("n", "H", harpoon_ui.nav_prev, { desc = "harpoon go prev" })
 map("n", "L", harpoon_ui.nav_next, { desc = "harpoon go next" })
 
 for i, key in ipairs({ "q", "w", "e", "r", "t" }) do
-	local combo = string.format("<M-%s>", key)
-	local description = string.format("harpoon goto file %d", i)
-	local action = function()
-		harpoon_ui.nav_file(i)
-	end
+    local combo = string.format("<M-%s>", key)
+    local description = string.format("harpoon goto file %d", i)
+    local action = function()
+        harpoon_ui.nav_file(i)
+    end
 
-	map("n", combo, action, { desc = description })
+    map("n", combo, action, { desc = description })
 end
