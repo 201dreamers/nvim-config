@@ -22,13 +22,15 @@ local harpoon_ui = require("harpoon.ui")
 
 map("n", "<leader>a", harpoon_mark.add_file, { desc = "harpoon add" })
 map("n", "<C-e>", harpoon_ui.toggle_quick_menu, { desc = "harpoon quick menu" })
+map("n", "H", harpoon_ui.nav_prev, { desc = "harpoon go prev" })
+map("n", "L", harpoon_ui.nav_next, { desc = "harpoon go next" })
 
-for i = 1, 4 do
-	local key = string.format("<M-%d>", i)
+for i, key in ipairs({ "q", "w", "e", "r", "t" }) do
+	local combo = string.format("<M-%s>", key)
 	local description = string.format("harpoon goto file %d", i)
 	local action = function()
 		harpoon_ui.nav_file(i)
 	end
 
-	map("n", key, action, { desc = description })
+	map("n", combo, action, { desc = description })
 end
