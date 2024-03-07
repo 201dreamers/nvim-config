@@ -9,7 +9,18 @@ end
 nvim_tree.setup({
     update_focused_file = {
         enable = true,
-        update_root = false,
+        update_root = true,
+        ignore_list = { ".git", "venv", ".venv" }
+    },
+    view = {
+        side = "right",
+    },
+    renderer = {
+        add_trailing = true,
+        highlight_opened_files = "all",
+        indent_markers = {
+            enable = true,
+        },
     },
     filters = {
         dotfiles = false,
