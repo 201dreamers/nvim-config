@@ -58,14 +58,6 @@ telescope.setup({
 		},
 	},
 	extensions = {
-		file_browser = {
-			-- disables netrw and use telescope-file-browser in its place
-			-- hijack_netrw = true,
-			theme = "ivy",
-			follow = true,
-			hidden = true,
-			no_ignore = true,
-		},
 		live_grep_args = {
 			auto_quoting = true,
 			additional_args = { "-.LS" },
@@ -105,7 +97,6 @@ telescope.setup({
 	},
 })
 
-telescope.load_extension("file_browser")
 telescope.load_extension("live_grep_args")
 telescope.load_extension("ui-select")
 telescope.load_extension("fzf")
@@ -122,6 +113,5 @@ map("n", "<leader>b", telescope_builtin.buffers, { desc = "buffers" })
 map("n", "<leader>sf", telescope_builtin.find_files, { desc = "all files" })
 map("n", "<leader>sg", telescope_builtin.git_files, { desc = "git files" })
 map("n", "<leader>sh", telescope_builtin.help_tags, { desc = "help" })
-map("n", "<leader>f", telescope.extensions.file_browser.file_browser, { desc = "file browser" })
 map("n", "<leader>st", telescope.extensions.live_grep_args.live_grep_args, { desc = "grep" })
 map("v", "<leader>st", live_grep_args_shortcuts.grep_visual_selection, { desc = "grep" })
