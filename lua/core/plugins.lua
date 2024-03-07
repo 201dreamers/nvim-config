@@ -48,10 +48,6 @@ return {
 		dependencies = { "nvim-lua/plenary.nvim" },
 	},
 	{
-		"nvim-telescope/telescope-file-browser.nvim",
-		dependencies = { "nvim-telescope/telescope.nvim" },
-	},
-	{
 		"nvim-telescope/telescope-live-grep-args.nvim",
 		dependencies = { "nvim-telescope/telescope.nvim" },
 	},
@@ -146,7 +142,7 @@ return {
 			vim.fn["mkdp#util#install"]()
 		end,
 	},
-	{ "ellisonleao/glow.nvim", config = true, cmd = "Glow" },
+	-- { "ellisonleao/glow.nvim", config = true, cmd = "Glow" },
 
 	-- Python
 	{ "Vimjas/vim-python-pep8-indent" },
@@ -160,7 +156,6 @@ return {
 		event = "VeryLazy",
 	},
 	{ "akinsho/org-bullets.nvim", event = "VeryLazy" },
-	-- { "michaelb/sniprun",         event = "VeryLazy" },
 
 	-- ---
 	-- Git
@@ -189,23 +184,11 @@ return {
 		end,
 	},
 	{ "johnfrankmorgan/whitespace.nvim" },
-	-- {
-	--     "ntpeters/vim-better-whitespace",
-	--     config = function()
-	--         vim.g.better_whitespace_filetypes_blacklist = {
-	--             "toggleterm", "TelescopePrompt", "diff", "git", "gitcommit",
-	--             "unite", "qf", "help", "markdown", "fugitive"
-	--         }
-	--     end
-	-- },
+	{ "lukas-reineke/indent-blankline.nvim", main = "ibl" },
 
 	-- ------------
 	-- Colorschemes
 	-- ------------
-	-- { "lunarvim/colorschemes" },
-	-- { "christianchiarulli/nvcode-color-schemes.vim" },
-	-- { "Mofiqul/vscode.nvim" },
-	-- { "sainnhe/edge" },
 	{ "rebelot/kanagawa.nvim" },
 	{ "EdenEast/nightfox.nvim" },
 	{
@@ -216,4 +199,5 @@ return {
 		"catppuccin/nvim",
 		name = "catppuccin",
 	},
+	{ "projekt0n/github-nvim-theme" },
 }
