@@ -5,9 +5,6 @@ if not (orgmode_ok and org_bullets_ok) then
     return
 end
 
--- Load treesitter grammar for org
-orgmode.setup_ts_grammar()
-
 -- Setup orgmode
 orgmode.setup({
     org_agenda_files = "~/orgfiles/**/*",
