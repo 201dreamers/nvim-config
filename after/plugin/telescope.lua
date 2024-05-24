@@ -3,7 +3,6 @@ if not ok then
     return
 end
 
--- local telescope_themes = require("telescope.themes")
 local telescope_actions = require("telescope.actions")
 local lga_actions = require("telescope-live-grep-args.actions")
 
@@ -12,10 +11,6 @@ local lga_actions = require("telescope-live-grep-args.actions")
 -- -----
 telescope.setup({
     defaults = {
-        -- defaults = vim.tbl_extend(
-        -- 	"force",
-        -- 	telescope_themes.get_ivy(), -- or get_cursor, get_ivy
-        -- 	{
         wrap_results = true,
         scroll_strategy = "limit",
         file_ignore_patterns = {
@@ -49,8 +44,6 @@ telescope.setup({
                 ["<C-h>"] = "which_key",
             },
         },
-        -- 	}
-        -- ),
     },
     pickers = {
         colorscheme = {
@@ -59,7 +52,7 @@ telescope.setup({
         buffers = {
             mappings = {
                 i = {
-                    ["<C-d>"] = telescope_actions.delete_buffer,
+                    ["<C-x>"] = telescope_actions.delete_buffer,
                 },
                 n = {
                     c = telescope_actions.delete_buffer,
@@ -75,7 +68,6 @@ telescope.setup({
                 i = {
                     ["<C-f>"] = lga_actions.quote_prompt({ postfix = " -.LS " }),
                     ["<C-t>"] = lga_actions.quote_prompt({ postfix = " --iglob " }),
-                    ["<C-i>"] = lga_actions.quote_prompt({ postfix = " -v --glob *.{html,md} " }),
                 },
             },
             -- also accepts theme settings, for example:
