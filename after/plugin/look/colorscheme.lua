@@ -26,7 +26,7 @@ end
 -- ---------------------
 local catpuccin_opts = {
     flavour = "mocha", -- latte, frappe, macchiato, mocha
-    transparent_background = true, -- disables setting the background color.
+    transparent_background = false, -- disables setting the background color.
     show_end_of_buffer = true, -- shows the '~' characters after the end of buffers
     no_bold = true, -- Force no bold
 }
@@ -39,7 +39,7 @@ local kanagawa_opts = {
     keywordStyle = { italic = true },
     statementStyle = { bold = false },
     typeStyle = {},
-    transparent = true, -- do not set background color
+    transparent = false, -- do not set background color
     dimInactive = false, -- dim inactive window `:h hl-NormalNC`
     terminalColors = true, -- define vim.g.terminal_color_{0,17}
     theme = "dragon", -- Load "wave" theme when 'background' option is not set
