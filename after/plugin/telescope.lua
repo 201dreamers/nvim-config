@@ -4,15 +4,41 @@ if not ok then
 end
 
 local telescope_actions = require("telescope.actions")
+local telescope_config = require("telescope.config")
 local lga_actions = require("telescope-live-grep-args.actions")
+
+-- Clone the default Telescope configuration
+local vimgrep_arguments = { unpack(telescope_config.values.vimgrep_arguments) }
+table.insert(vimgrep_arguments, "--hidden")
+table.insert(vimgrep_arguments, "--follow")
+table.insert(vimgrep_arguments, "--glob")
+table.insert(vimgrep_arguments, "!**/.git/*")
 
 -- -----
 -- Setup
 -- -----
 telescope.setup({
     defaults = {
-        wrap_results = true,
+        path_display = function(_, path)
+            local tail = require("telescope.utils").path_tail(path)
+            return string.format("%s  %s", tail, path)
+        end,
         scroll_strategy = "limit",
+        vimgrep_arguments = vimgrep_arguments,
+        layout_strategy = "vertical",
+        layout_config = {
+            vertical = {
+                mirror = true,
+                prompt_position = "top",
+                width = 0.95,
+                height = 0.95,
+            },
+        },
+        mappings = {
+            i = {
+                ["<C-h>"] = "which_key", -- default <C-/>
+            },
+        },
         file_ignore_patterns = {
             ".git/",
             ".*venv.*/",
@@ -24,32 +50,17 @@ telescope.setup({
             "ssd_compare/",
             "releases/",
         },
-        layout_config = {
-            horizontal = {
-                width = 0.99,
-            },
-            center = {
-                width = 0.99,
-            },
-            vertical = {
-                width = 0.99,
-            },
-            bottom_pane = {
-                height = 35,
-            },
-        },
-        mappings = {
-            i = {
-                -- map actions.which_key to <C-h> (default: <C-/>)
-                ["<C-h>"] = "which_key",
-            },
-        },
     },
     pickers = {
         colorscheme = {
             enable_preview = true,
         },
+        find_files = {
+            previewer = true,
+            find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
+        },
         buffers = {
+            sort_mru = true,
             mappings = {
                 i = {
                     ["<C-x>"] = telescope_actions.delete_buffer,
@@ -63,39 +74,22 @@ telescope.setup({
     extensions = {
         live_grep_args = {
             auto_quoting = true,
-            additional_args = { "-.LS" },
+            additional_args = function()
+                return { "-.LS" }
+            end,
             mappings = {
                 i = {
-                    ["<C-f>"] = lga_actions.quote_prompt({ postfix = " -.LS " }),
                     ["<C-t>"] = lga_actions.quote_prompt({ postfix = " --iglob " }),
                 },
             },
-            -- also accepts theme settings, for example:
-            -- theme = "dropdown", -- use dropdown theme
-            -- layout_config = { mirror=true }, -- mirror preview pane
         },
         fzf = {
-            fuzzy = true, -- false will only do exact matching
-            override_generic_sorter = true, -- override the generic sorter
-            override_file_sorter = true, -- override the file sorter
+            fuzzy = true,
+            override_generic_sorter = true,
+            override_file_sorter = true,
             case_mode = "smart_case", -- or "ignore_case" or "respect_case"
-            -- the default case_mode is "smart_case"
         },
-        ["ui-select"] = {
-            -- pseudo code / specification for writing custom displays, like the one
-            -- for "codeactions"
-            -- specific_opts = {
-            --   [kind] = {
-            --     make_indexed = function(items) -> indexed_items, width,
-            --     make_displayer = function(widths) -> displayer
-            --     make_display = function(displayer) -> function(e)
-            --     make_ordinal = function(e) -> string
-            --   },
-            --   -- for example to disable the custom builtin "codeactions" display
-            --      do the following
-            --   codeactions = false,
-            -- }
-        },
+        ["ui-select"] = {},
     },
 })
 
@@ -112,9 +106,7 @@ local live_grep_args_shortcuts = require("telescope-live-grep-args.shortcuts")
 
 map("n", "<leader><leader>", telescope_builtin.resume, { desc = "last search" })
 map("n", "<leader>b", telescope_builtin.buffers, { desc = "buffers" })
-map("n", "<leader>sf", function()
-    telescope_builtin.find_files({ follow = true, hidden = true, no_ignore = true })
-end, { desc = "all files" })
+map("n", "<leader>f", telescope_builtin.find_files, { desc = "all files" })
 map("n", "<leader>sg", telescope_builtin.git_files, { desc = "git files" })
 map("n", "<leader>sh", telescope_builtin.help_tags, { desc = "help" })
 map("n", "<leader>ss", telescope.extensions.live_grep_args.live_grep_args, { desc = "grep" })
