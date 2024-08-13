@@ -3,18 +3,14 @@ if not ok then
     return
 end
 
-wk.register({
-    ["<leader>s"] = { name = "+search" },
-    ["<leader>d"] = { name = "+debug" },
-    ["<leader>g"] = { name = "+git" },
-    ["<leader>o"] = { name = "+orgmode" },
-    ["<leader>t"] = {
-        name = "+text modify",
-        m = "toggle table mode",
-        t = "tabelize",
-    },
-    ["<leader>l"] = {
-        name = "+language",
-        g = "+goto",
-    },
+wk.add({
+    { "<leader>s", group = "search" },
+    { "<leader>g", group = "git" },
+    { "<leader>o", group = "orgmode" },
+    { "<leader>l", group = "language" },
+    { "<leader>lg", group = "goto" },
+    { "<leader>d", group = "debug" },
+    { "<leader>t", group = "text modify" },
+    { "<leader>tm", desc = "toggle table mode" },
+    { "<leader>tt", desc = "tabelize" },
 })
