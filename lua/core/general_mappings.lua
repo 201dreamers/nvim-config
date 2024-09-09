@@ -22,7 +22,7 @@ map("n", "<M-Down>", ":resize -5<cr>")
 -- Buffers
 -- map("n", "H", ":bp<cr>")
 -- map("n", "L", ":bn<cr>")
-map("n", "<leader>c", ":bn<cr>:bd#<cr>", { desc = "close buffer" })
+map("n", "<leader>x", ":bn<cr>:bd#<cr>", { desc = "close buffer" })
 
 -- General better movement
 map("n", "J", "mzJ`z")

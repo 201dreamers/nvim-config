@@ -23,6 +23,9 @@ telescope.setup({
             local tail = require("telescope.utils").path_tail(path)
             return string.format("%s  %s", tail, path)
         end,
+        cache_picker = {
+            num_pickers = 3,
+        },
         scroll_strategy = "limit",
         vimgrep_arguments = vimgrep_arguments,
         layout_strategy = "vertical",
@@ -104,10 +107,10 @@ local map = vim.keymap.set
 local telescope_builtin = require("telescope.builtin")
 local live_grep_args_shortcuts = require("telescope-live-grep-args.shortcuts")
 
-map("n", "<leader><leader>", telescope_builtin.resume, { desc = "last search" })
+map("n", "<leader><leader>", telescope_builtin.pickers, { desc = "cached searches" })
 map("n", "<leader>b", telescope_builtin.buffers, { desc = "buffers" })
 map("n", "<leader>f", telescope_builtin.find_files, { desc = "all files" })
+map("n", "<leader>/", telescope.extensions.live_grep_args.live_grep_args, { desc = "grep" })
+map("v", "<leader>/", live_grep_args_shortcuts.grep_visual_selection, { desc = "grep" })
 map("n", "<leader>sg", telescope_builtin.git_files, { desc = "git files" })
 map("n", "<leader>sh", telescope_builtin.help_tags, { desc = "help" })
-map("n", "<leader>ss", telescope.extensions.live_grep_args.live_grep_args, { desc = "grep" })
-map("v", "<leader>ss", live_grep_args_shortcuts.grep_visual_selection, { desc = "grep" })
