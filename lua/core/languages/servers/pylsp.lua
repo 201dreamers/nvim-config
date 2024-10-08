@@ -31,6 +31,9 @@ local opts = {
                 pylint = {
                     enabled = false,
                 },
+                mypy = {
+                    enabled = false,
+                },
             },
         },
     },

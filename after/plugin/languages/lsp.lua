@@ -49,7 +49,7 @@ mason.setup()
 mason_lspconfig.setup({
     ensure_installed = {
         "lua_ls",
-        "pylsp",
+        "ruff_lsp",
         "marksman",
         "jsonls",
         "clangd",
@@ -64,6 +64,7 @@ mason_lspconfig.setup({
         -- tsserver = lsp_zero.noop,
 
         lua_ls = require("core.languages.servers.lua_ls"),
+        ruff_lsp = require("core.languages.servers.ruff"),
         pylsp = require("core.languages.servers.pylsp"),
         robotframework_ls = require("core.languages.servers.robotframework_ls"),
         -- pyright = require("core.languages.servers.pyright"),
@@ -77,8 +78,8 @@ mason_tool_installer.setup({
         "prettier",
         "stylua",
         "isort",
-        "ruff",
         "debugpy",
+        -- "ruff",
         -- "golangci-lint",
     },
 })
