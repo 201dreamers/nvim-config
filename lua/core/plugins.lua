@@ -2,8 +2,12 @@ return {
     -- --------------------
     -- Basic usage and look
     -- --------------------
-    { "nvim-tree/nvim-tree.lua" },
-    { "nvim-tree/nvim-web-devicons" },
+    { "echasnovski/mini.icons" },
+    {
+        "stevearc/oil.nvim",
+        opts = {},
+        dependencies = { "echasnovski/mini.icons" },
+    },
     {
         "nvim-lualine/lualine.nvim",
         dependencies = { "nvim-tree/nvim-web-devicons" },
@@ -94,7 +98,7 @@ return {
     { "nvim-treesitter/nvim-treesitter" },
     { "nmac427/guess-indent.nvim" },
     { "norcalli/nvim-colorizer.lua" },
-    { "folke/lsp-colors.nvim", event = "BufRead" },
+    { "folke/lsp-colors.nvim",          event = "BufRead" },
 
     -- Languages support
     {
@@ -102,16 +106,16 @@ return {
         branch = "v3.x",
         dependencies = {
             -- LSP Support
-            { "neovim/nvim-lspconfig" }, -- Required
-            { "williamboman/mason.nvim" }, -- Optional
-            { "williamboman/mason-lspconfig.nvim" }, -- Optional
+            { "neovim/nvim-lspconfig" },                     -- Required
+            { "williamboman/mason.nvim" },                   -- Optional
+            { "williamboman/mason-lspconfig.nvim" },         -- Optional
             { "WhoIsSethDaniel/mason-tool-installer.nvim" }, -- Optional
 
             -- Autocompletion
-            { "hrsh7th/nvim-cmp" }, -- Required
+            { "hrsh7th/nvim-cmp" },     -- Required
             { "hrsh7th/cmp-nvim-lsp" }, -- Required
-            { "L3MON4D3/LuaSnip" }, -- Required
-            { "hrsh7th/cmp-buffer" }, -- Optional
+            { "L3MON4D3/LuaSnip" },     -- Required
+            { "hrsh7th/cmp-buffer" },   -- Optional
             { "onsails/lspkind.nvim" }, -- Optional
         },
     },
@@ -124,14 +128,14 @@ return {
         event = "VeryLazy",
     },
     { "mfussenegger/nvim-dap" },
-    { "rcarriga/nvim-dap-ui", dependencies = "mfussenegger/nvim-dap" },
-    { "mfussenegger/nvim-dap-python", dependencies = { "mfussenegger/nvim-dap", "rcarriga/nvim-dap-ui" } },
+    { "rcarriga/nvim-dap-ui",                     dependencies = "mfussenegger/nvim-dap" },
+    { "mfussenegger/nvim-dap-python",             dependencies = { "mfussenegger/nvim-dap", "rcarriga/nvim-dap-ui" } },
 
     -- ------------------------------
     -- Related to a specific language
     -- ------------------------------
     -- Robot Framework
-    { "totu/robotframework-vim", event = "BufEnter *.robot,*.resource" },
+    { "totu/robotframework-vim",                  event = "BufEnter *.robot,*.resource" },
     { "evedovelli/rst-robotframework-syntax-vim", event = "BufEnter *.robot,*.resource" },
 
     -- Markdown
@@ -156,20 +160,20 @@ return {
         },
         event = "VeryLazy",
     },
-    { "akinsho/org-bullets.nvim", event = "VeryLazy" },
+    { "akinsho/org-bullets.nvim",     event = "VeryLazy" },
 
     -- ---
     -- Git
     -- ---
-    { "sindrets/diffview.nvim", event = "VeryLazy" },
+    { "sindrets/diffview.nvim",       event = "VeryLazy" },
     { "lewis6991/gitsigns.nvim" },
     {
         "NeogitOrg/neogit",
         dependencies = {
-            "nvim-lua/plenary.nvim", -- required
+            "nvim-lua/plenary.nvim",         -- required
             "nvim-telescope/telescope.nvim", -- optional
-            "sindrets/diffview.nvim", -- optional
-            "ibhagwan/fzf-lua", -- optional
+            "sindrets/diffview.nvim",        -- optional
+            "ibhagwan/fzf-lua",              -- optional
         },
         config = true,
         event = "VeryLazy",
