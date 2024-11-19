@@ -7,7 +7,7 @@ end
 -- Setup
 -- -----
 harpoon.setup({
-    tabline = true,
+    tabline = false,
     menu = {
         width = vim.api.nvim_win_get_width(0) - 4,
     },
@@ -22,8 +22,8 @@ local harpoon_ui = require("harpoon.ui")
 
 map("n", "<leader>a", harpoon_mark.add_file, { desc = "harpoon add" })
 map("n", "<C-e>", harpoon_ui.toggle_quick_menu, { desc = "harpoon quick menu" })
-map("n", "H", harpoon_ui.nav_prev, { desc = "harpoon go prev" })
-map("n", "L", harpoon_ui.nav_next, { desc = "harpoon go next" })
+-- map("n", "H", harpoon_ui.nav_prev, { desc = "harpoon go prev" })
+-- map("n", "L", harpoon_ui.nav_next, { desc = "harpoon go next" })
 
 for i, key in ipairs({ "q", "w", "e", "r", "t" }) do
     local combo = string.format("<M-%s>", key)
