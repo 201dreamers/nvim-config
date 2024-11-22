@@ -10,5 +10,5 @@ local opts = {
 }
 
 return function()
-    lspconfig.ruff_lsp.setup(opts)
+    lspconfig.ruff.setup(opts)
 end
