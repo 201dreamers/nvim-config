@@ -13,10 +13,13 @@ local function get_python_path()
     -- The code below looks for a `venv` or `.venv` folder in the current directly and uses the python within.
     -- You could adapt this - to for example use the `VIRTUAL_ENV` environment variable.
     local cwd = vim.fn.getcwd()
+    local venv = os.getenv("VIRTUAL_ENV")
+    if not venv then
+        venv = cwd .. "/venv"
+    end
 
     local possible_paths = {
-        os.getenv("VIRTUAL_ENV") .. "/bin/python",
-        cwd .. "/venv/bin/python",
+        venv .. "/bin/python",
         cwd .. "/.venv/bin/python",
     }
 
@@ -28,6 +31,8 @@ local function get_python_path()
 
     return "/usr/bin/python"
 end
+
+dap_python.setup(get_python_path())
 
 dap.configurations.python = {
     {
