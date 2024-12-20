@@ -3,11 +3,12 @@ return {
     -- Basic usage and look
     -- --------------------
     { "echasnovski/mini.icons" },
-    {
-        "stevearc/oil.nvim",
-        opts = {},
-        dependencies = { "echasnovski/mini.icons" },
-    },
+    { 'echasnovski/mini.files', version = false },
+    -- {
+    --     "stevearc/oil.nvim",
+    --     opts = {},
+    --     dependencies = { "echasnovski/mini.icons" },
+    -- },
     {
         "nvim-lualine/lualine.nvim",
         dependencies = { "nvim-tree/nvim-web-devicons" },

@@ -6,7 +6,10 @@ local map = vim.keymap.set
 -- Add here mapping not related to plugins
 
 -- Default explorer
-map("n", "<leader>e", ":Explore<cr>")
+map("n", "<leader>e", ":Explore<cr>", { desc = "explorer" })
+
+-- Save file
+map("n", "<leader>w", ":w<cr>", { desc = "save file" })
 
 -- Moving around windows
 map("n", "<C-h>", "<C-w><Left>")

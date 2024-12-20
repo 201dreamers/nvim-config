@@ -34,6 +34,10 @@ oil.setup({
 
         -- Sort file and directory names case insensitive
         case_insensitive = false,
+
+        is_always_hidden = function(name, _)
+            return name == ".."
+        end
     },
 })
 
@@ -43,8 +47,8 @@ oil.setup({
 local map = vim.keymap.set
 local oil_actions = require("oil.actions")
 
-map("n", "<leader>e", oil_actions.open_cwd.callback, { desc = "fb cwd" })
-map("n", "<leader>E", ":Oil<cr>", { desc = "fb buffer" })
+map("n", "-", oil.open, { desc = "fb buffer" })
+map("n", "<leader>-", oil_actions.open_cwd.callback, { desc = "fb cwd" })
 
 -- Save path to the file to clipboard
 map("n", "<leader>oy", function()
