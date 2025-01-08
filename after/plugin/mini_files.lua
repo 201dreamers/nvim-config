@@ -8,6 +8,7 @@ end
 -- -----
 mini_files.setup({
     mappings = {
+        close = "<esc>",
         go_in = "",
         go_in_plus = "l",
     },
