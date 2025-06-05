@@ -52,3 +52,5 @@ vim.opt.updatetime = 50
 
 -- vim.opt.conceallevel = 2
 vim.opt.concealcursor = "nc"
+
+vim.cmd.colorscheme("evening")

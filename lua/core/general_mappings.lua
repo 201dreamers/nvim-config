@@ -23,8 +23,9 @@ map("n", "<M-Up>", ":resize +5<cr>")
 map("n", "<M-Down>", ":resize -5<cr>")
 
 -- Buffers
--- map("n", "H", ":bp<cr>")
--- map("n", "L", ":bn<cr>")
+map("n", "<leader>b", ":buffers<cr>")
+map("n", "H", ":bp<cr>")
+map("n", "L", ":bn<cr>")
 map("n", "<leader>x", ":bn<cr>:bd#<cr>", { desc = "close buffer" })
 
 -- General better movement
@@ -44,4 +45,4 @@ map({ "n", "v" }, "<leader>d", [["_d]], { desc = "delete to void" })
 map("n", "<leader>Y", [["+Y]], { desc = "line to clipboard" })
 map("x", "<leader>p", [["_dP]], { desc = "paste over" })
 
--- map("n", "<leader>t", [[:%s/\s\+$//e<cr>]], { desc = "remove trailing spaces" })
+map("n", "<leader>t", [[:%s/\s\+$//e<cr>]], { desc = "remove trailing spaces" })
